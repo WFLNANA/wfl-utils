@@ -4,12 +4,14 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 18:59:13
- * @LastEditTime: 2021-09-13 19:38:38
+ * @LastEditTime: 2021-09-14 11:29:42
  */
 // 根据身份证获取信息
 const getCardInfo = (cardId, split = '-') => {
-  if (typeof cardId !== 'string' && typeof cardId !== 'number') return
-  if (typeof cardId === 'number') cardId = `${cardId}`
+  if (typeof cardId !== 'string') {
+    console.error('请传入字符串类型')
+    return
+  }
   let card = null;
   // 获取身份证长度
   const isNew = cardId.length === 18

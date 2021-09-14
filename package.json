@@ -1,8 +1,9 @@
 {
   "name": "wfl-utils",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "常用JS/TS工具类库",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +19,10 @@
     "url参数",
     "树形数据",
     "vue",
-    "react"
+    "react",
+    "身份证",
+    "类型比较",
+    "类型获取"
   ],
   "author": "wfl",
   "license": "Apache-2.0"
