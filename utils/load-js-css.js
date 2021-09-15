@@ -4,10 +4,10 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 10:48:44
- * @LastEditTime: 2021-09-13 10:51:19
+ * @LastEditTime: 2021-09-15 15:26:26
  */
 // 加载js || css || style
-const loadIFile = (fileSrc, type, fn) => {
+const loadFile = (fileSrc, type, fn) => {
   let ref
   if (type === 'js') {
     ref = document.createElement('script')
@@ -30,4 +30,4 @@ const loadIFile = (fileSrc, type, fn) => {
   }
 }
 
-export default loadIFile
+export default loadFile

@@ -1,7 +1,7 @@
 {
   "name": "wfl-utils",
-  "version": "0.0.3",
-  "description": "常用JS/TS工具类库",
+  "version": "1.0.0",
+  "description": "常用JS/TS工具类库 - 持续完善中...",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -22,7 +22,10 @@
     "react",
     "身份证",
     "类型比较",
-    "类型获取"
+    "类型获取",
+    "cookie",
+    "localStorage",
+    "空格"
   ],
   "author": "wfl",
   "license": "Apache-2.0"

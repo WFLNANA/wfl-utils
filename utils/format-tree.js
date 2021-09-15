@@ -4,9 +4,9 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 13:41:56
- * @LastEditTime: 2021-09-14 09:50:03
+ * @LastEditTime: 2021-09-14 19:20:50
  */
-import { getType } from './types/get-type'
+import { getType } from './types/get-type.js'
 /**
  * @description: 
  * @param {

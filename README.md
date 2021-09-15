@@ -1,7 +1,15 @@
 # **[wfl-utils]()**
 
-**常用JS工具库**
-
+**常用JS工具库 - 持续完善中...**
+#### 目前已有：
+- ***localStorage***: 增加了可设置过期时间
+- ***cookie***: 简化了cookie的操作
+- ***空格***：去除首、尾、全部空格，将空格替换为其它字符
+- ***URL***：获取URL参数
+- ***数据类型***：获取数据类型、类型比较
+- ***身份证***：根据身份证获取出生日期、性别；支持15、18位身份证
+- ***树形数据***：通用树形数据封装方法(使用了ES6 filter)没用递归
+- ***资源加载***：向页面加载JS、CSS、Style；支持加载完成后调用方法
 ### 用法
 ****
 ####  获取URL参数
@@ -112,7 +120,6 @@ getCardInfo('612731200405231412',  '.')
 //	}
 
 ```
-<<<<<<< HEAD
 ####  数据整合为树型数据
 参数： 
 ** data**:  数据 any[]
@@ -169,5 +176,89 @@ formatTree(data)
 //		}
 //	]
 ```
-=======
->>>>>>> 5846b39f60053a18301d9df855f281638f8cc712
+####  localStorage处理(含过期处理)
+参数： 
+**  name**: 存/取字段名
+** value**: 值
+** time**：过期时间，单位：秒
+**例：**
+```javascript
+import { localStore } from 'wfl-utils'
+
+localStore.setItem('name', '李四')；// 不设置有效期
+localStore.setItem('name', '李四', 60 * 60 * 24) // 有效期一天
+
+localStore.getItem('name')
+// 李四
+// 若字段不存在或已过期则返回null
+
+localStore.removeItem('name') // 移除某一项
+localStore.clear('name') // 移除某一项
+localStore.clear() // 清空localStorage
+
+```
+####  cookie处理
+参数： 
+**  name**: 存/取字段名
+** value**: 值
+** time**：
+- string | number: 设置多久后(秒)过期
+- Date: 设置什么时间过期
+**例：**
+
+```javascript
+import { cookie } from 'cookie'
+
+cookie.set('age', 25, 60 * 60 * 24) // 有效时间一天
+cookie.set('age', 25, new Date('2022-05-25')) // 有效期至2022年5月25日
+cookie.set('age', 25) // 不设置过期时间
+
+cookie.get('age')
+// 25
+cookie.get('sex')
+// 不存在或已过期返回 undefined
+```
+
+####  移除空格
+参数：
+** str**: 需处理字符串
+** type**: 移除类型 不传：移除全部空格 start: 移除开始空格 end: 移除结束空格
+** replace**：空格替换成什么，默认为空
+**例：**
+
+```javascript
+import { removeSpace } from 'wfl-utils'
+
+let str = '  12  sdad asdas45d asfsa ff   ';
+
+removeSpace(str)
+// 12sdadasdas45dasfsaff
+removeSpace(str1, 'start')
+//'12  sdad asdas45d asfsa ff   '
+removeSpace(str1, 'end')
+//'  12  sdad asdas45d asfsa ff'
+removeSpace(str1, '', '-') //将空格替换为'-'
+// '--12--sdad-asdas45d-asfsa-ff---'
+```
+
+####  资源加载
+参数：
+** fileSrc**: 资源路径
+** type**: 资源类型 js、css、style
+** cb**：加载后执行的回调函数
+**例：**
+
+```javascript
+import { loadFile } from 'wfl-utils'
+
+loadFile('/assets/js/a.js', 'js')
+
+loadFile('/assets/js/a.js', 'js', ()=>{
+	console.log('加载完成')
+})
+// 加载完成
+
+loadFile('/assets/css/c.css', 'css')
+```
+
+####  其它文档待完善
