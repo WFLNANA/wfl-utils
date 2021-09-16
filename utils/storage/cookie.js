@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-14 19:44:35
- * @LastEditTime: 2021-09-15 14:50:22
+ * @LastEditTime: 2021-09-15 19:23:07
  */
 import { compareType } from '../types/get-type.js'
 /**
@@ -36,5 +36,9 @@ export const cookie = {
     const cookieArr = cookieStr.split('; ');
     const _str = cookieArr.find((co) => co.startsWith(`${name}=`));
     return _str ? _str.split('=')[1] : _str
+  },
+  del: (name) => {
+    if(!name) return
+    cookie.set(name, '', -1)
   }
 }

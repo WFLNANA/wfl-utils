@@ -1,10 +1,13 @@
 {
   "name": "wfl-utils",
-  "version": "1.0.0",
-  "description": "常用JS/TS工具类库 - 持续完善中...",
-  "main": "index.js",
+  "version": "1.0.2",
+  "description": "常用JS/TS工具类库(v1.0.1起不再上传源文件，改为压缩文件；源代码请转至github查看) - 持续完善中...",
+  "main": "dist/wfl-utils.es.js",
   "type": "module",
+  "files": ["dist"],
+  "typings": "dist/types/wfl-utils.d.ts",
   "scripts": {
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +30,19 @@
     "localStorage",
     "空格"
   ],
-  "author": "wfl",
-  "license": "Apache-2.0"
+  "author": {
+    "name": "wfl",
+    "email": "763914998@qq.com"
+  },
+  "license": "Apache-2.0",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-terser": "^7.0.2"
+  }
 }
