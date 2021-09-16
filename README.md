@@ -1,7 +1,9 @@
 # **[wfl-utils]()**
 
 **常用JS工具库 - 持续完善中...**
-#### 目前已有：
+
+#### 目前已有
+
 - ***localStorage***: 增加了可设置过期时间
 - ***cookie***: 简化了cookie的操作
 - ***空格***：去除首、尾、全部空格，将空格替换为其它字符
@@ -10,13 +12,20 @@
 - ***身份证***：根据身份证获取出生日期、性别；支持15、18位身份证
 - ***树形数据***：通用树形数据封装方法(使用了ES6 filter)没用递归
 - ***资源加载***：向页面加载JS、CSS、Style；支持加载完成后调用方法
+- ***常用正则***：空格、手机号、座机、身份证、邮编、邮箱、网址、IP、数字、字母、汉字、HTML
+- ***生成UUID***：36字节的字符串;支持在UUID开始或末尾添加自定义字符串
+
 ### 用法
+
 ****
-####  获取URL参数
+
+#### 获取URL参数
+
 参数：
 **name**：要获取的字段名
 **href**：url地址
 **例：**
+
 ```javascript
 import { getUrlParam } from 'wfl-utils'
 
@@ -26,11 +35,14 @@ getUrlParam('name', 'https://www.wfl.utils/?name=zhangsan&age=12')
 getUrlParam('age', 'https://www.wfl.utils/?name=zhangsan&age=12')
 // '12'
 ```
-####  类型获取
-参数： 
+
+#### 类型获取
+
+参数：
 **param**: 需要判断类型的参数
 **isAll**: 是否返回全字符："[object String]" 默认只返回类型字符："String"
 **例：**
+
 ```javascript
 // 获取类型
 import { getType } from 'wfl-utils'
@@ -42,12 +54,15 @@ getType(a)
 getType(a, true)
 // "[object Number]"
 ```
-####  类型比较 - 属性和某一类型的类型比较
-参数： 
+
+#### 类型比较 - 属性和某一类型的类型比较
+
+参数：
 **param**: 需要比较类型的参数
 **type**: string、number、boolean....等
 **strict**: 严格模式
 **例：**
+
 ```javascript
 // 获取类型
 import { compareType } from 'wfl-utils'
@@ -60,15 +75,18 @@ compareType(a， 'Number')
 compareType(a,  'string')
 // false
 ```
-####  类型比较 - 属性和属性的类型比较
-参数： 
+
+#### 类型比较 - 属性和属性的类型比较
+
+参数：
 **param1**: 需要比较类型的参数1
 **param2**: 需要比较类型的参数2
 **例：**
+
 ```javascript
 // 获取类型
 import { compareParamType } from 'wfl-utils'
-	
+ 
 let a = {}; 
 let b = [];
 compareParamType(a, b)
@@ -85,49 +103,54 @@ compareParamType(a, b)
 // true
 
 ```
-####  根据身份证获取出生日期、性别 支持15位、18位新旧身份证
-参数： 
+
+#### 根据身份证获取出生日期、性别 支持15位、18位新旧身份证
+
+参数：
 **cardId**: 身份证号 string | number
 **split**: 出身日期分隔符默认'-'，即‘2001-01-05’
 **例：**
+
 ```javascript
 // 获取类型
 import { getCardInfo } from 'wfl-utils'
 
 getCardInfo('612731200405231412')
 
-//	{
-//		birthData: "19990518",
-//		birthDataSplit: "1999-05-18",
-//		birthDay: "18",
-//		birthMounth: "05",
-//		birthYear: "1999",
-//		sex: "男",
-//		sexBolNum: 1, //1 -男 ，0 - 女
-//		sexNum: "1",
-//	}
+// {
+//  birthData: "19990518",
+//  birthDataSplit: "1999-05-18",
+//  birthDay: "18",
+//  birthMounth: "05",
+//  birthYear: "1999",
+//  sex: "男",
+//  sexBolNum: 1, //1 -男 ，0 - 女
+//  sexNum: "1",
+// }
 
 getCardInfo('612731200405231412',  '.')
-//	{
-//		birthData: "19990518",
-//		birthDataSplit: "1999.05.18",
-//		birthDay: "18",
-//		birthMounth: "05",
-//		birthYear: "1999",
-//		sex: "男",
-//		sexBolNum: 1, //1 -男 ，0 - 女
-//		sexNum: "1",
-//	}
+// {
+//  birthData: "19990518",
+//  birthDataSplit: "1999.05.18",
+//  birthDay: "18",
+//  birthMounth: "05",
+//  birthYear: "1999",
+//  sex: "男",
+//  sexBolNum: 1, //1 -男 ，0 - 女
+//  sexNum: "1",
+// }
 
 ```
-####  数据整合为树型数据
-参数： 
-** data**:  数据 any[]
-** param** : {
-		 id: 标识
-		 parentId: 父标识
-		 children: 子存放属性名
-		 quit：返回条件
+
+#### 数据整合为树型数据
+
+参数：
+**data**:  数据 any[]
+**param** : {
+   id: 标识
+   parentId: 父标识
+   children: 子存放属性名
+   quit：返回条件
   }
 **例：**
 
@@ -152,36 +175,39 @@ let data = [
 ]
 
 formatTree(data)
-//	 [
-//		{
-//			id: 1, 
-//			iparentId: 0, 
-//			iname: '菜单1',
-//			irank: 1,
-//			children: [
-//				id: 4
-//				name: "菜单1-1"
-//				parentId: 1
-//				rank: 2,
-//				children: [....]
-//			]
-//		},
-//		{
-//			id: 2, parentId: 0, name: '菜单2', rank: 1,
-//			.......
-//		},
-//		{
-//			id: 3, parentId: 0, name: '菜单3', rank: 1,
-//			.......
-//		}
-//	]
+//  [
+//  {
+//   id: 1, 
+//   iparentId: 0, 
+//   iname: '菜单1',
+//   irank: 1,
+//   children: [
+//    id: 4
+//    name: "菜单1-1"
+//    parentId: 1
+//    rank: 2,
+//    children: [....]
+//   ]
+//  },
+//  {
+//   id: 2, parentId: 0, name: '菜单2', rank: 1,
+//   .......
+//  },
+//  {
+//   id: 3, parentId: 0, name: '菜单3', rank: 1,
+//   .......
+//  }
+// ]
 ```
-####  localStorage处理(含过期处理)
-参数： 
-**  name**: 存/取字段名
-** value**: 值
-** time**：过期时间，单位：秒
+
+#### localStorage处理(含过期处理)
+
+参数：
+**name**: 存/取字段名
+**value**: 值
+**time**：过期时间，单位：秒
 **例：**
+
 ```javascript
 import { localStore } from 'wfl-utils'
 
@@ -197,11 +223,14 @@ localStore.clear('name') // 移除某一项
 localStore.clear() // 清空localStorage
 
 ```
-####  cookie处理
-参数： 
-**  name**: 存/取字段名
-** value**: 值
-** time**：
+
+#### cookie处理
+
+参数：
+**name**: 存/取字段名
+**value**: 值
+**time**：
+
 - string | number: 设置多久后(秒)过期
 - Date: 设置什么时间过期
 **例：**
@@ -219,11 +248,12 @@ cookie.get('sex')
 // 不存在或已过期返回 undefined
 ```
 
-####  移除空格
+#### 移除空格
+
 参数：
-** str**: 需处理字符串
-** type**: 移除类型 不传：移除全部空格 start: 移除开始空格 end: 移除结束空格
-** replace**：空格替换成什么，默认为空
+**str**: 需处理字符串
+**type**: 移除类型 不传：移除全部空格 start: 移除开始空格 end: 移除结束空格
+**replace**：空格替换成什么，默认为空
 **例：**
 
 ```javascript
@@ -241,11 +271,12 @@ removeSpace(str1, '', '-') //将空格替换为'-'
 // '--12--sdad-asdas45d-asfsa-ff---'
 ```
 
-####  资源加载
+#### 资源加载
+
 参数：
-** fileSrc**: 资源路径
-** type**: 资源类型 js、css、style
-** cb**：加载后执行的回调函数
+**fileSrc**: 资源路径
+**type**: 资源类型 js、css、style
+**cb**：加载后执行的回调函数
 **例：**
 
 ```javascript
@@ -254,11 +285,35 @@ import { loadFile } from 'wfl-utils'
 loadFile('/assets/js/a.js', 'js')
 
 loadFile('/assets/js/a.js', 'js', ()=>{
-	console.log('加载完成')
+ console.log('加载完成')
 })
 // 加载完成
 
 loadFile('/assets/css/c.css', 'css')
 ```
 
-####  其它文档待完善
+#### 生成UUID
+
+参数：
+**str**: 需插入的字符串
+**position**: 插入位置 start | end
+**例：**
+
+```javascript
+import { getUuid } from 'wfl-utils'
+
+getUuid()
+// 2BAB3964-4899-4316-31B6-519AB4D587E8
+
+getUuid()
+// 08347CEA-3E80-4799-55A1-BB142876CBED
+
+getUuid('ZI-') // 添加前缀
+//ZI-A0821DD2-90ED-415D-3953-6C634A0EA108
+
+getUuid('-ZI', 'end') // 添加后缀
+//0D98DC6A-8A87-495E-5BA8-CBD7874351A3-ZI
+
+```
+
+#### 其它文档待完善
