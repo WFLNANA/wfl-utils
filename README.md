@@ -14,6 +14,7 @@
 - ***资源加载***：向页面加载JS、CSS、Style；支持加载完成后调用方法
 - ***常用正则***：空格、手机号、座机、身份证、邮编、邮箱、网址、IP、数字、字母、汉字、HTML
 - ***生成UUID***：36字节的字符串;支持在UUID开始或末尾添加自定义字符串
+- ***日期格式化***：YYYY-MM-DD hh:mm:ss q S  年-月-日 时:分:秒 季度 毫秒
 
 ### 用法
 
@@ -314,6 +315,44 @@ getUuid('ZI-') // 添加前缀
 getUuid('-ZI', 'end') // 添加后缀
 //0D98DC6A-8A87-495E-5BA8-CBD7874351A3-ZI
 
+```
+#### 生成UUID
+
+参数：
+**fstr**: 需转换、获取的日期格式
+**date**: 待转换的日期 string | Date
+**backList**: 将结果已对象形式返回{data： 转换后的日期, list: 转换后的日期将年月日、时分秒、季度、毫秒以数组形式返回}
+**例：**
+
+```javascript
+import { formatDate } from 'wfl-utils'
+
+// YYYY-MM-DD hh:mm:ss  q    S
+//  年  月 日  时:分:秒 季度  毫秒
+
+formatDate('YYYY-MM-DD hh:mm:ss')
+// 2021-09-17 20:16:27
+
+// 分隔符 - 和 : 可自己传入
+formatDate('YYYY.MM.DD')
+// 2021.09.17
+formatDate('YYYY/MM/DD')
+// 2021/09/17
+
+formatDate('hh:mm:ss')
+// 20:16:27
+formatDate('YYYY-M-DD hh:mm:ss')
+// 2021-9-17 20:16:27
+formatDate('YYYY-MM-DD hh:mm:ss q')
+// 2021-9-17 20:19:35 3
+formatDate('YYYY-MM-DD hh:mm:ss q S')
+// 2021-9-17 20:20:03 3 312
+
+formatDate('YYYY-MM-DD hh:mm:ss', '', true)
+//{
+//	data: '2021-9-17 20:17:55',
+//	list: [ '2021-9-17', '20:17:55' ]
+//}
 ```
 
 #### 其它文档待完善

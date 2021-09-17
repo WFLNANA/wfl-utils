@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-14 20:34:35
- * @LastEditTime: 2021-09-16 20:44:40
+ * @LastEditTime: 2021-09-17 16:35:42
  */
 // 正则
 export const checkRegexp = {
@@ -31,7 +31,7 @@ export const checkRegexp = {
   // IP
   IP: /((?:(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d?\\d))/,
   // 数字
-  number: /^[0-9]$/,
+  number: /^[0-9]+$/,
   // 字母
   en: /^[a-zA-Z]+$/,
   // 汉字
