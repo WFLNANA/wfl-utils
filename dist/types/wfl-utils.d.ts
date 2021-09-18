@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-09-16 20:34:04
+ * @LastEditTime: 2021-09-17 20:10:46
  */
 declare module 'wfl-utils' {
   export function loadFile(fileSrc: string, type: string, fn: Function): void
@@ -55,4 +55,6 @@ declare module 'wfl-utils' {
   export function chenkingStr(str: string, type: string): boolean;
 
   export function getUuid(str?: string, position?: string): string;
+
+  export function formatDate(fstr: string, date?: string | Date, backList?: boolean): string;
 }
