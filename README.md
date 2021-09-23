@@ -247,6 +247,10 @@ cookie.get('age')
 // 25
 cookie.get('sex')
 // 不存在或已过期返回 undefined
+
+// 删除cookie
+cookie.del('age')
+
 ```
 
 #### 移除空格
@@ -316,7 +320,7 @@ getUuid('-ZI', 'end') // 添加后缀
 //0D98DC6A-8A87-495E-5BA8-CBD7874351A3-ZI
 
 ```
-#### 生成UUID
+#### 日期格式化
 
 参数：
 **fstr**: 需转换、获取的日期格式
@@ -353,6 +357,20 @@ formatDate('YYYY-MM-DD hh:mm:ss', '', true)
 //	data: '2021-9-17 20:17:55',
 //	list: [ '2021-9-17', '20:17:55' ]
 //}
+```
+
+#### 数组扁平化(任意深度数组)
+
+参数：
+**arr**: Array<any>
+**例：**
+
+```javascript
+import { flatArr } from 'wfl-utils'
+
+let a = [[1, 2], 3, [[4, 5, 6], [7, 8]]]
+console.log(flatArr(a));
+// [1, 2, 3, 4, 5, 6, 7, 8]
 ```
 
 #### 其它文档待完善

@@ -1,7 +1,7 @@
 {
   "name": "wfl-utils",
-  "version": "1.1.3",
-  "description": "常用JS/TS工具类库(v1.0.1起不再上传源文件，改为压缩文件；源代码请转至github查看) - 持续完善中...",
+  "version": "1.1.6",
+  "description": "常用JS/TS工具类库 - 持续完善中...",
   "main": "dist/wfl-utils.es.js",
   "type": "module",
   "files": ["dist"],

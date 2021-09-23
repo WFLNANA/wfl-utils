@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 10:47:18
- * @LastEditTime: 2021-09-16 20:44:13
+ * @LastEditTime: 2021-09-22 17:24:17
  */
 import loadFile from './utils/load-js-css.js';
 import getUrlParam from './utils/get-url-params.js';
@@ -14,6 +14,7 @@ import { localStore } from './utils/storage/local-storage.js'
 import { cookie } from './utils/storage/cookie.js';
 import { removeSpace } from './utils/regexp/remove-space.js';
 import { checkRegexp, checkingStr } from './utils/regexp/check-regexp.js';
+import { flatArr } from './utils/array/flat.js'
 
 const wflutils = {
   loadFile,
@@ -26,7 +27,8 @@ const wflutils = {
   localStore,
   cookie,
   checkRegexp,
-  checkingStr
+  checkingStr,
+  flatArr
 }
 
 export {
