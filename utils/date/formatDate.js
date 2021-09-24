@@ -4,9 +4,9 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-17 19:41:00
- * @LastEditTime: 2021-09-17 20:22:28
+ * @LastEditTime: 2021-09-23 18:11:03
  */
-const formatDate = (fstr, date, backList = false) => { // 时间格式化 【'YYYY-MM-DD hh:mm:ss',时间】
+export const formatDate = (fstr, date, backList = false) => { // 时间格式化 【'YYYY-MM-DD hh:mm:ss',时间】
   if (typeof date !== 'object') {
     date = !date ? new Date() : new Date(date)
   }
@@ -34,4 +34,4 @@ const formatDate = (fstr, date, backList = false) => { // 时间格式化 【'YY
   } : fstr
 }
 
-console.log(formatDate('YYYY/MM/DD'));
+// console.log(formatDate('YYYY/MM/DD'));
