@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-14 19:24:18
- * @LastEditTime: 2021-09-14 19:43:36
+ * @LastEditTime: 2021-09-26 10:36:26
  */
 /**
  * @description:
@@ -31,7 +31,7 @@ export const localStore = {
 
     const param = JSON.parse(paramStr);
     // 已过期
-    if (new Date().getTime() > param.overTime) {
+    if (new Date().getTime() > param.overTime && param.overTime !== 0) {
       localStorage.removeItem(name);
       return null
     }

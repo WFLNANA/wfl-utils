@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 13:41:56
- * @LastEditTime: 2021-09-14 19:20:50
+ * @LastEditTime: 2021-09-26 14:28:10
  */
 import { getType } from './types/get-type.js'
 /**
@@ -36,7 +36,7 @@ export const formatTree = (data, param = null) => {
   return copyData.filter((parent) => {
     const branchs = copyData.filter((child) => parent[id] === child[parentId]);
     branchs.length ? parent[children] = branchs : undefined;
-    return parent[quit[0]] == quit[1];
+    return parent[quit[0]] === quit[1];
   })
 }
 
@@ -59,3 +59,19 @@ export const formatTree = (data, param = null) => {
 // ]
 
 // console.log(formatTree(data, {id: 'id'}));
+
+let data = [
+  { no: 1, parentNo: null, name: "菜单1", rank: 1 },
+  { no: 2, parentNo: null, name: "菜单2", rank: 1 },
+  { no: 3, parentNo: null, name: "菜单3", rank: 1 },
+  { no: 4, parentNo: 1, name: "菜单1-1", rank: 2 },
+  { no: 5, parentNo: 1, name: "菜单1-2", rank: 2 },
+  { no: 6, parentNo: 2, name: "菜单2-1", rank: 2 },
+  { no: 7, parentNo: 4, name: "菜单1-1-1", rank: 3 },
+  { no: 8, parentNo: 7, name: "菜单1-1-1-1", rank: 4 },
+  { no: 9, parentNo: 8, name: "菜单1-1-1-1-1", rank: 5 },
+  { no: 10, parentNo: 9, name: "菜单1-1-1-1-1-1", rank: 6 },
+  { no: 11, parentNo: 10, name: "菜单1-1-1-1-1-1-1", rank: 7 },
+]
+
+console.log(formatTree(data, {id: 'no', parentId: 'parentNo', quit: ['parentNo', null]}));

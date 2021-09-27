@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-23 17:35:17
- * @LastEditTime: 2021-09-23 18:25:15
+ * @LastEditTime: 2021-09-26 09:54:52
  */
 // 获取星期几
 export const formatWeek = (date, isArr = true) => {
@@ -14,3 +14,5 @@ export const formatWeek = (date, isArr = true) => {
   const str = weekNames[we === 0 ? 6 : we - 1]
   return isArr ? [str, `星期${str}`, `周${str}`, we] : str
 }
+
+console.log(formatWeek('2021-08-02'));

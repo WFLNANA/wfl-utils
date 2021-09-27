@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 10:47:18
- * @LastEditTime: 2021-09-22 17:24:17
+ * @LastEditTime: 2021-09-26 10:15:57
  */
 import loadFile from './utils/load-js-css.js';
 import getUrlParam from './utils/get-url-params.js';
@@ -15,6 +15,9 @@ import { cookie } from './utils/storage/cookie.js';
 import { removeSpace } from './utils/regexp/remove-space.js';
 import { checkRegexp, checkingStr } from './utils/regexp/check-regexp.js';
 import { flatArr } from './utils/array/flat.js'
+import { formatWeek } from './utils/date/formatWeek.js'
+import { getWeek, getMonth, getMonthComple } from './utils/date/getDate.js'
+import { getMonthDay } from './utils/date/getMonthDay.js'
 
 const wflutils = {
   loadFile,
@@ -28,7 +31,12 @@ const wflutils = {
   cookie,
   checkRegexp,
   checkingStr,
-  flatArr
+  flatArr,
+  formatWeek,
+  getWeek,
+  getMonth,
+  getMonthComple,
+  getMonthDay
 }
 
 export {
@@ -42,7 +50,13 @@ export {
   localStore,
   cookie,
   checkRegexp,
-  checkingStr
+  flatArr,
+  checkingStr,
+  formatWeek,
+  getWeek,
+  getMonth,
+  getMonthComple,
+  getMonthDay
 }
 
 export default wflutils

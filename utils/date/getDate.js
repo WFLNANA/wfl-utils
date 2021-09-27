@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-23 17:06:52
- * @LastEditTime: 2021-09-23 18:47:24
+ * @LastEditTime: 2021-09-26 10:06:05
  */
 import { formatDate } from './formatDate.js'
 import { formatWeek } from './formatWeek.js'
@@ -50,7 +50,7 @@ export const getWeek = (date) => {
 
   return weeks
 }
-// console.log(getWeek('2021-08-01'));
+// console.log(getWeek());
 
 // 获取某一月数据
 export const getMonth = (date) => {
@@ -76,7 +76,7 @@ export const getMonth = (date) => {
   return months
 }
 // getMonth()
-// console.log('getMonth(): ', getMonth());
+// console.log(getMonth());
 
 // 获取某一月数据 + 补全
 export const getMonthComple = (date) => {
@@ -116,4 +116,4 @@ export const getMonthComple = (date) => {
 }
 
 // getMonthComple()
-console.log('getMonthComple(): ', getMonthComple());
+// console.log(getMonthComple());

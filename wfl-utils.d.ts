@@ -4,10 +4,10 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-09-22 17:24:46
+ * @LastEditTime: 2021-09-26 10:34:33
  */
 declare module 'wfl-utils' {
-  export function loadFile(fileSrc: string, type: string, fn: Function): void
+  export function loadFile(fileSrc: string, type: string, fn?: Function): void
   export function getUrlParams(name: string, href?: string): any[]
   export function getType(param: any, isAll?: boolean): string
   export function compareType(param: any, type: string, strict?: boolean): boolean
@@ -29,7 +29,7 @@ declare module 'wfl-utils' {
     function del(name: string): void
   }
   export namespace localStore {
-    function setItem(name: string, value: any, time: number | Date): void
+    function setItem(name: string, value: any, time?: number | Date): void
     function getItem(name: string): any
     function removeItem(name: string): void
     function clear(name?: string): void
@@ -59,4 +59,35 @@ declare module 'wfl-utils' {
   export function formatDate(fstr: string, date?: string | Date, backList?: boolean): string;
 
   export function flatArr(arr: Array<T>): Array<T>;
+
+  export function formatWeek(date: Date | string, isArr?: boolean): string | (string | number)[];
+
+  export function getWeek(date: any): {
+    date: any;
+    datemon: any;
+    week: string | number;
+    week1: string | number;
+    week2: string | number;
+    week3: string | number;
+  }[]
+
+  export function getMonth(date: any): {
+    date: string;
+    datemon: string;
+    week: string | number;
+    week1: string | number;
+    week2: string | number;
+    week3: string | number;
+  }[]
+  
+  export function getMonthComple(date: any): {
+    date: string;
+    datemon: string;
+    week: string | number;
+    week1: string | number;
+    week2: string | number;
+    week3: string | number;
+  }[]
+
+  export function getMonthDay(year: string | number, month: string | number): number
 }

@@ -1,46 +1,6 @@
-# **[wfl-utils]()**
-
-**常用JS工具库 - 持续完善中...**
-
-#### 目前已有
-
-- ***localStorage***: 增加了可设置过期时间
-- ***cookie***: 简化了cookie的操作
-- ***空格***：去除首、尾、全部空格，将空格替换为其它字符
-- ***URL***：获取URL参数
-- ***数据类型***：获取数据类型、类型比较
-- ***身份证***：根据身份证获取出生日期、性别；支持15、18位身份证
-- ***树形数据***：通用树形数据封装方法(使用了ES6 filter)没用递归
-- ***资源加载***：向页面加载JS、CSS、Style；支持加载完成后调用方法
-- ***常用正则***：空格、手机号、座机、身份证、邮编、邮箱、网址、IP、数字、字母、汉字、HTML
-- ***生成UUID***：36字节的字符串;支持在UUID开始或末尾添加自定义字符串
-- ***日期格式化***：YYYY-MM-DD hh:mm:ss q S  年-月-日 时:分:秒 季度 毫秒
-
-### 用法
-
-****
-
-#### 获取URL参数
-
-参数：
-**name**：要获取的字段名
-**href**：url地址
-**例：**
-
-```javascript
-import { getUrlParam } from 'wfl-utils'
-
-getUrlParam('name', 'https://www.wfl.utils/?name=zhangsan&age=12')
-//  'zhangsan'
-
-getUrlParam('age', 'https://www.wfl.utils/?name=zhangsan&age=12')
-// '12'
-```
-
 #### 类型获取# **[wfl-utils]()**
 
 **常用JS工具库 - 持续完善中...**
-
 #### 目前已有
 
 - ***localStorage***: 增加了可设置过期时间
@@ -55,10 +15,23 @@ getUrlParam('age', 'https://www.wfl.utils/?name=zhangsan&age=12')
 - ***生成UUID***：36字节的字符串;支持在UUID开始或末尾添加自定义字符串
 - ***日期格式化***：YYYY-MM-DD hh:mm:ss q S  年-月-日 时:分:秒 季度 毫秒
 - ***数组扁平化(任意深度数组)***：[[1, 2], 3, [[4, 5, 6], [7, 8]]] => [1, 2, 3, 4, 5, 6, 7, 8]
-- ***获取某一周、某一月、某一月补全数据***：见文档说明
+- ***获取某一周、某一月、某一月补全(日历)数据***：见文档说明
 - ***获取某一月有多少天***：getMonthDay(2021, 9) => 30
 
 ### 用法
+
+
+```javascript
+npm i wfl-utils -S
+// 或
+yarn add wfl-utils
+```
+```javascript
+import { xx } from 'wfl-utils'
+// 或
+import wflutils from 'wfl-utils'
+wflutils.xxx()
+```
 
 ****
 
@@ -413,9 +386,11 @@ import { flatArr } from 'wfl-utils'
 let a = [[1, 2], 3, [[4, 5, 6], [7, 8]]]
 console.log(flatArr(a));
 // [1, 2, 3, 4, 5, 6, 7, 8]
-```
 
-#### 其它文档待完善
+let b = [[1, 2], 3, [7, 8]]
+console.log(flatArr(a));
+// [1, 2, 3, 7, 8]
+```
 
 
 参数：
@@ -751,5 +726,222 @@ let a = [[1, 2], 3, [[4, 5, 6], [7, 8]]]
 console.log(flatArr(a));
 // [1, 2, 3, 4, 5, 6, 7, 8]
 ```
+#### 获取日历数据、周数据
 
+###### 获取某个日期是星期几
+```javascript
+import { formatWeek } from 'wfl-utils'
+
+/*
+参数：
+	date：日期
+	isArr: 是否已数组形式返回，默认true
+*/
+formatWeek()
+// 默认返回包含常用写法数组，不传参默认当前日期
+// [ '日', '星期日', '周日', 0 ]
+formatWeek('', false)
+// 日
+formatWeek('2021-08-02')
+// [ '一', '星期一', '周一', 1 ]
+
+```
+###### 获取某月有多少天
+```javascript
+import { getMonthDay } from 'wfl-utils'
+
+/*
+参数：
+	year: 年份
+	month: 月份
+*/
+getMonthDay()
+// 30
+getMonthDay(2021, 5)
+// 31
+```
+
+###### 获取某一周日期
+```javascript
+import { getWeek } from 'wfl-utils'
+/*
+参数
+	date: 日期， 默认当前日期
+*/
+getWeek()
+/*
+[
+  {
+    date: '2021-09-20',
+    datemon: '09-20',
+    week: '一',
+    week1: '星期一',
+    week2: '周一',
+    week3: 1
+  },
+  {
+    date: '2021-09-21',
+    datemon: '09-21',
+    week: '二',
+    week1: '星期二',
+    week2: '周二',
+    week3: 2
+  },
+  {
+    date: '2021-09-22',
+    datemon: '09-22',
+    week: '三',
+    week1: '星期三',
+    week2: '周三',
+    week3: 3
+  },
+  {
+    date: '2021-09-23',
+    datemon: '09-23',
+    week: '四',
+    week1: '星期四',
+    week2: '周四',
+    week3: 4
+  },
+  {
+    date: '2021-09-24',
+    datemon: '09-24',
+    week: '五',
+    week1: '星期五',
+    week2: '周五',
+    week3: 5
+  },
+  {
+    date: '2021-09-25',
+    datemon: '09-25',
+    week: '六',
+    week1: '星期六',
+    week2: '周六',
+    week3: 6
+  },
+  {
+    date: '2021-09-26',
+    datemon: '09-26',
+    week: '日',
+    week1: '星期日',
+    week2: '周日',
+    week3: 0
+  }
+]
+*/
+```
+###### 获取某一月日期(当前月，不会补全：补全即获取6周共42天常见日历数据)
+```javascript
+import { getMonth } from 'wfl-utils'
+/*
+参数
+	date: 日期， 默认当前日期
+*/
+/*
+[
+  {
+    date: '2021-09-01',
+    datemon: '09-01',
+    week: '三',
+    week1: '星期三',
+    week2: '周三',
+    week3: 3
+  },
+  {
+    date: '2021-09-02',
+    datemon: '09-02',
+    week: '四',
+    week1: '星期四',
+    week2: '周四',
+    week3: 4
+  },
+  {
+    date: '2021-09-03',
+    datemon: '09-03',
+    week: '五',
+    week1: '星期五',
+    week2: '周五',
+    week3: 5
+  },
+  ......
+   {
+    date: '2021-09-28',
+    datemon: '09-28',
+    week: '二',
+    week1: '星期二',
+    week2: '周二',
+    week3: 2
+  },
+  {
+    date: '2021-09-29',
+    datemon: '09-29',
+    week: '三',
+    week1: '星期三',
+    week2: '周三',
+    week3: 3
+  },
+  {
+    date: '2021-09-30',
+    datemon: '09-30',
+    week: '四',
+    week1: '星期四',
+    week2: '周四',
+    week3: 4
+  }
+]
+*/
+```
+###### 获取某一月补全日期(即日历)
+```javascript
+import { getMonthComple } from 'wfl-utils'
+/*
+参数
+	date: 日期， 默认当前日期
+*/
+getMonthComple()
+/*
+[
+  {
+    date: '2021-08-30',
+    datemon: '08-30',
+    week: '一',
+    week1: '星期一',
+    week2: '周一',
+    week3: 1
+  },
+  {
+    date: '2021-08-31',
+    datemon: '08-31',
+    week: '二',
+    week1: '星期二',
+    week2: '周二',
+    week3: 2
+  },
+  {
+    date: '2021-09-01',
+    datemon: '09-01',
+    week: '三',
+    week1: '星期三',
+    week2: '周三',
+    week3: 3
+  },
+  ......
+  {
+    date: '2021-10-09',
+    datemon: '10-09',
+    week: '六',
+    week1: '星期六',
+    week2: '周六',
+    week3: 6
+  },
+  {
+    date: '2021-10-10',
+    datemon: '10-10',
+    week: '日',
+    week1: '星期日',
+    week2: '周日',
+    week3: 0
+  }
+*/
+```
 #### 其它文档待完善
