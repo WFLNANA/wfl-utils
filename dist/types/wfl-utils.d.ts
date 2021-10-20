@@ -4,11 +4,11 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-09-26 10:34:33
+ * @LastEditTime: 2021-10-20 15:29:27
  */
 declare module 'wfl-utils' {
   export function loadFile(fileSrc: string, type: string, fn?: Function): void
-  export function getUrlParams(name: string, href?: string): any[]
+  export function getUrlParam(name: string, href?: string): any[]
   export function getType(param: any, isAll?: boolean): string
   export function compareType(param: any, type: string, strict?: boolean): boolean
   export function compareType(param1: any, param2: any): boolean
@@ -29,6 +29,13 @@ declare module 'wfl-utils' {
     function del(name: string): void
   }
   export namespace localStore {
+    function setItem(name: string, value: any, time?: number | Date): void
+    function getItem(name: string): any
+    function removeItem(name: string): void
+    function clear(name?: string): void
+  }
+
+  export namespace sessionStore {
     function setItem(name: string, value: any, time?: number | Date): void
     function getItem(name: string): any
     function removeItem(name: string): void
@@ -79,7 +86,7 @@ declare module 'wfl-utils' {
     week2: string | number;
     week3: string | number;
   }[]
-  
+
   export function getMonthComple(date: any): {
     date: string;
     datemon: string;
@@ -90,4 +97,24 @@ declare module 'wfl-utils' {
   }[]
 
   export function getMonthDay(year: string | number, month: string | number): number
+
+  /**
+ * @description: 函数防抖
+ * @param {*} fn 函数
+ * @param {*} delay 延迟时间
+ * @param {*} immediate 立即执行
+ * @param {*} cb 回调函数
+ * @return {*}
+ */
+  export function debounce(fn: Function, delay: number = 1000, immediate: boolean = true, cb: Function | null = null)
+
+  /**
+ * @description: 函数节流（throttle）：当持续触发事件时，保证一定时间段内只调用一次事件处理函数
+ * @param {*} fn 函数
+ * @param {*} delay 延迟时间
+ * @param {*} cb 回调函数
+ * @param {*} immediate 立即执行
+ * @return { Function } 
+ */
+  export function throttle(fn: Function, delay: number = 1000, immediate: boolean = true, cb: Function | null = null)
 }

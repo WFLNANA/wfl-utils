@@ -1,7 +1,7 @@
 {
   "name": "wfl-utils",
-  "version": "1.1.9",
-  "description": "常用JS/TS工具类库 - 文档完善",
+  "version": "1.2.5",
+  "description": "常用JS/TS工具类库",
   "main": "dist/wfl-utils.es.js",
   "type": "module",
   "files": ["dist"],
@@ -10,7 +10,7 @@
     "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "homepage": "",
+  "homepage": "http://www.wdpv.top/util/",
   "repository": {
     "type": "git",
     "url": "https://github.com/WFLNANA/wfl-utils/tree/main"

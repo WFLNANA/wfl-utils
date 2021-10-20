@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 10:47:18
- * @LastEditTime: 2021-09-26 10:15:57
+ * @LastEditTime: 2021-10-20 15:47:27
  */
 import loadFile from './utils/load-js-css.js';
 import getUrlParam from './utils/get-url-params.js';
@@ -18,6 +18,8 @@ import { flatArr } from './utils/array/flat.js'
 import { formatWeek } from './utils/date/formatWeek.js'
 import { getWeek, getMonth, getMonthComple } from './utils/date/getDate.js'
 import { getMonthDay } from './utils/date/getMonthDay.js'
+import { debounce } from './utils/thrott-chatter/debounce.js'
+import { throttle } from './utils/thrott-chatter/throttle.js'
 
 const wflutils = {
   loadFile,
@@ -36,10 +38,14 @@ const wflutils = {
   getWeek,
   getMonth,
   getMonthComple,
-  getMonthDay
+  getMonthDay,
+  debounce,
+  throttle
 }
 
 export {
+  throttle,
+  debounce,
   loadFile,
   getUrlParam,
   getType,
