@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 13:41:56
- * @LastEditTime: 2021-09-26 14:28:10
+ * @LastEditTime: 2021-11-16 18:02:10
  */
 import { getType } from './types/get-type.js'
 /**
@@ -73,5 +73,3 @@ let data = [
   { no: 10, parentNo: 9, name: "菜单1-1-1-1-1-1", rank: 6 },
   { no: 11, parentNo: 10, name: "菜单1-1-1-1-1-1-1", rank: 7 },
 ]
-
-console.log(formatTree(data, {id: 'no', parentId: 'parentNo', quit: ['parentNo', null]}));

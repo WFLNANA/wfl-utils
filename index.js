@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 10:47:18
- * @LastEditTime: 2021-10-20 15:47:27
+ * @LastEditTime: 2021-10-26 18:00:40
  */
 import loadFile from './utils/load-js-css.js';
 import getUrlParam from './utils/get-url-params.js';
@@ -20,8 +20,14 @@ import { getWeek, getMonth, getMonthComple } from './utils/date/getDate.js'
 import { getMonthDay } from './utils/date/getMonthDay.js'
 import { debounce } from './utils/thrott-chatter/debounce.js'
 import { throttle } from './utils/thrott-chatter/throttle.js'
+import { formatDate } from './utils/date/formatDate.js'
+import { fullScreen } from './utils/screen/full-screen.js'
+import { getUuid } from './utils/uuid/get-uuid.js';
 
 const wflutils = {
+  getUuid,
+  fullScreen,
+  formatDate,
   loadFile,
   getUrlParam,
   getType,
@@ -44,6 +50,9 @@ const wflutils = {
 }
 
 export {
+  getUuid,
+  fullScreen,
+  formatDate,
   throttle,
   debounce,
   loadFile,

@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-10-20 15:29:27
+ * @LastEditTime: 2021-11-02 11:37:58
  */
 declare module 'wfl-utils' {
   export function loadFile(fileSrc: string, type: string, fn?: Function): void
@@ -106,7 +106,7 @@ declare module 'wfl-utils' {
  * @param {*} cb 回调函数
  * @return {*}
  */
-  export function debounce(fn: Function, delay: number = 1000, immediate: boolean = true, cb: Function | null = null)
+  export function debounce(fn: Function, delay?: number, immediate?: boolean, cb?: Function | null)
 
   /**
  * @description: 函数节流（throttle）：当持续触发事件时，保证一定时间段内只调用一次事件处理函数
@@ -116,5 +116,23 @@ declare module 'wfl-utils' {
  * @param {*} immediate 立即执行
  * @return { Function } 
  */
-  export function throttle(fn: Function, delay: number = 1000, immediate: boolean = true, cb: Function | null = null)
+  export function throttle(fn: Function, delay?: number, immediate?: boolean, cb?: Function | null)
+
+  /**
+   * @description: 全屏
+   * @param {*} id dom元素id
+   * @return {*}
+   */
+  export namespace fullScreen {
+    function open(id?: HTMLElement): Function
+    function exit(): Function
+    function toggle(id?: HTMLElement): Function
+  }
+  interface ITree {
+    id?: string
+    parentId?: string
+    children?: string
+    quit?: [string | number, string | number]
+  }
+  export function formatTree(data: any[], param?: ITree): any[]
 }

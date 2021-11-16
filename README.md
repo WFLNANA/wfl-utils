@@ -677,7 +677,8 @@ setInterval(() => {
 }, 1000);
 ```
 
-````
+```
+
 #### 函数节流：
 当持续触发事件时，保证一定时间段内只调用一次事件处理函数
 参数：
@@ -690,6 +691,7 @@ setInterval(() => {
 - @param {\*} cb 回调函数
 - @return {_}
   _/
+
   **例：**
 ```javascript
 import { throttle } from 'wfl-utils'
@@ -703,6 +705,35 @@ setInterval(() => {
  console.log('-')
  fn()
 }, 100)
-````
+```
+
+```
+#### 全屏：
+整个页面或指定某一元素全屏
+参数：
+/\*\*
+
+- @description: 函数节流
+- @param {\*} id 可选DOM元素id
+- @return {_}
+  _/
+  **例：**
+```javascript
+import { fullScreen } from 'wfl-utils'
+
+// 网页全屏
+fullScreen.open()
+// 某个元素全屏
+<div id="demo"></div>
+fullScreen.open('demo')
+
+// 退出全屏
+fullScreen.exit()
+
+// 切换全屏/取消全屏
+fullScreen.toggle()
+<div id="demo"></div>
+fullScreen.toggle('demo')
+```
 
 #### 其它文档待完善
