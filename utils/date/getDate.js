@@ -4,11 +4,12 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-23 17:06:52
- * @LastEditTime: 2021-09-26 10:06:05
+ * @LastEditTime: 2021-12-06 16:22:45
  */
 import { formatDate } from './formatDate.js'
 import { formatWeek } from './formatWeek.js'
 import { getMonthDay } from './getMonthDay.js'
+import { convertDate } from './convertDate.js'
 
 const DAY_TIME = 86400000
 // 获取某一周数据
@@ -69,7 +70,8 @@ export const getMonth = (date) => {
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
-      week3: ws[3]
+      week3: ws[3],
+      isnow: true
     })
     d++
   }
@@ -93,7 +95,8 @@ export const getMonthComple = (date) => {
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
-      week3: ws[3]
+      week3: ws[3],
+      isback: true
     })
     num++
   }
@@ -108,10 +111,20 @@ export const getMonthComple = (date) => {
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
-      week3: ws[3]
+      week3: ws[3],
+      isnext: true
     })
     len++
   }
+  // 获取农历信息
+  months.forEach((item) => {
+    const data = item.date.split('-')
+    const nl = convertDate.solar2lunar(data[0], data[1], data[2]);
+    item.nl = nl
+    item.monthcn = nl.IMonthCn
+    item.daycn = nl.IDayCn
+  })
+
   return months
 }
 

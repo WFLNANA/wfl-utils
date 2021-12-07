@@ -2,6 +2,8 @@
 
 **常用 JS 工具库 - 持续完善中...**
 
+- 本次更新: 全屏，日历增加农历和节日；
+
 #### 目前已有
 
 - **_localStorage_**: 增加了可设置过期时间
@@ -20,6 +22,7 @@
 - **_获取某一月有多少天_**：getMonthDay(2021, 9) => 30
 - **_函数节流_**：见文档说明
 - **_函数防抖_**：见文档说明
+- **_全屏_**：见文档说明
 
 ### 用法
 
@@ -595,6 +598,43 @@ import { getMonthComple } from "wfl-utils";
  date: 日期， 默认当前日期
 */
 getMonthComple();
+// v1.3.4新增：对象中添加nl属性返回农历信息
+// nl中festcn返回农历节日；fest返回阳历节日；无节日返回undefined
+// {
+//     date: '2022-01-01',
+//     datemon: '01-01',
+//     week: '六',
+//     week1: '星期六',
+//     week2: '周六',
+//     week3: 6,
+//     isnext: true,
+//     nl: {
+//       lYear: 2021,
+//       lMonth: 11,
+//       lDay: 29,
+//       Animal: '牛',
+//       IMonthCn: '十一月',
+//       IDayCn: '廿九',
+//       cYear: 2022,
+//       cMonth: 1,
+//       cDay: 1,
+//       gzYear: '辛丑',
+//       gzMonth: '庚子',
+//       gzDay: '甲寅',
+//       isToday: false,
+//       isLeap: false,
+//       nWeek: 6,
+//       ncWeek: '星期六',
+//       isTerm: false,
+//       Term: null,
+//       astro: '魔羯座',
+//       festcn: undefined,
+//       fest: [Object]
+//     },
+//     monthcn: '十一月',
+//     daycn: '廿九'
+//   },
+// 之前版本返回数据
 /*
 [
   {
