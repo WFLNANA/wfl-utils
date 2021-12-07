@@ -4,10 +4,11 @@
  * @description: 农历阳历互转
  * @updateInfo: 本次更新内容：
  * @Date: 2021-12-06 14:42:28
- * @LastEditTime: 2021-12-06 15:47:46
+ * @LastEditTime: 2021-12-07 12:30:31
  * @阳历转农历：calendar.solar2lunar(1987,11,01);
  * @农历转阳历：calendar.lunar2solar(1987,11,01);
  */
+import { getMonthDay } from './getMonthDay.js'
 export const convertDate = {
   /**
    * 农历1900-2100的润大小信息表
@@ -158,10 +159,10 @@ export const convertDate = {
   /**
    * 月份转农历称呼速查表
    * @Array Of Property
-   * @trans ['正','一','二','三','四','五','六','七','八','九','十','十一','腊']
+   * @trans ['正','一','二','三','四','五','六','七','八','九','十','十一 "\u5341\u4e00"','腊'] "\u51ac" 冬
    * @return Cn string
    */
-  nStr3: ["\u6b63", "\u4e8c", "\u4e09", "\u56db", "\u4e94", "\u516d", "\u4e03", "\u516b", "\u4e5d", "\u5341", "\u5341\u4e00", "\u814a"],
+  nStr3: ["\u6b63", "\u4e8c", "\u4e09", "\u56db", "\u4e94", "\u516d", "\u4e03", "\u516b", "\u4e5d", "\u5341", "\u51ac", "\u814a"],
   /**
     * 农历节日
     * @Array Of Property
@@ -202,7 +203,7 @@ export const convertDate = {
     name: '重阳节'
   }, {
     month: '腊',
-    day: '二十九|三十',
+    day: '除夕',
     name: '除夕'
   }],
   /**
@@ -214,47 +215,47 @@ export const convertDate = {
   solarFestival: [{
     month: 1,
     day: 1,
-    name: '元旦'
+    name: '元旦节'
   }, {
     month: 3,
     day: 8,
-    name: '妇女'
+    name: '妇女节'
   }, {
     month: 3,
     day: 12,
-    name: '植树'
+    name: '植树节'
   }, {
     month: 4,
     day: 5,
-    name: '清明'
+    name: '清明节'
   }, {
     month: 5,
     day: 1,
-    name: '劳动'
+    name: '劳动节'
   }, {
     month: 5,
     day: 4,
-    name: '青年'
+    name: '青年节'
   }, {
     month: 6,
     day: 1,
-    name: '儿童'
+    name: '儿童节'
   }, {
     month: 7,
     day: 1,
-    name: '建党'
+    name: '建党节'
   }, {
     month: 8,
     day: 1,
-    name: '建军'
+    name: '建军节'
   }, {
     month: 9,
     day: 10,
-    name: '教师'
+    name: '教师节'
   }, {
     month: 10,
     day: 1,
-    name: '国庆'
+    name: '国庆节'
   }],
   /**
    * 返回农历y年一整年的总天数
@@ -434,12 +435,20 @@ export const convertDate = {
   getAnimal: function (y) {
     return convertDate.Animals[(y - 4) % 12]
   },
-  getFestival: (month, day) => {
+  getFestival: (month, day, y,m) => {
     let fest = null
     if (parseInt(month)) {
       fest = convertDate.solarFestival.find(item => item.month == month && item.day == day)
     } else {
-      fest = convertDate.lunarFestival.find(item => item.month === month && item.day === day)
+      // let day
+      // if (month === '腊月') {
+      //   console.log('month: ', month);
+      //   day = getMonthDay(y-1, 12)
+      //   console.log('day: ', day);
+      // }
+      fest = convertDate.lunarFestival.find(item => {
+       return `${item.month}月` === month && item.day === day
+      })
     }
     return fest
   },
@@ -531,7 +540,7 @@ export const convertDate = {
     var astro = convertDate.toAstro(m, d);
     const moncn = convertDate.toChinaMonth(month)
     const daycn = convertDate.toChinaDay(day)
-    return { 'lYear': year, 'lMonth': month, 'lDay': day, 'Animal': convertDate.getAnimal(year), 'IMonthCn': (isLeap ? "\u95f0" : '') + moncn, 'IDayCn': daycn, 'cYear': y, 'cMonth': m, 'cDay': d, 'gzYear': gzY, 'gzMonth': gzM, 'gzDay': gzD, 'isToday': isToday, 'isLeap': isLeap, 'nWeek': nWeek, 'ncWeek': "\u661f\u671f" + cWeek, 'isTerm': isTerm, 'Term': Term, 'astro': astro, festcn: convertDate.getFestival(moncn, daycn), fest: convertDate.getFestival(m, d) };
+    return { 'lYear': year, 'lMonth': month, 'lDay': day, 'Animal': convertDate.getAnimal(year), 'IMonthCn': (isLeap ? "\u95f0" : '') + moncn, 'IDayCn': daycn, 'cYear': y, 'cMonth': m, 'cDay': d, 'gzYear': gzY, 'gzMonth': gzM, 'gzDay': gzD, 'isToday': isToday, 'isLeap': isLeap, 'nWeek': nWeek, 'ncWeek': "\u661f\u671f" + cWeek, 'isTerm': isTerm, 'Term': Term, 'astro': astro, festcn: convertDate.getFestival(moncn, daycn, y, m), fest: convertDate.getFestival(m, d, y) };
   },
   /**
    * 传入农历年月日以及传入的月份是否闰月获得详细的公历、农历object信息 <=>JSON

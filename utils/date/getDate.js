@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-23 17:06:52
- * @LastEditTime: 2021-12-06 16:22:45
+ * @LastEditTime: 2021-12-07 12:16:22
  */
 import { formatDate } from './formatDate.js'
 import { formatWeek } from './formatWeek.js'
@@ -67,6 +67,7 @@ export const getMonth = (date) => {
     months.push({
       date: day,
       datemon: sday,
+      dateday: formatDate('DD', day),
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
@@ -92,6 +93,7 @@ export const getMonthComple = (date) => {
     months.unshift({
       date: formatDate('YYYY-MM-DD', time),
       datemon: formatDate('MM-DD', time),
+      dateday: formatDate('DD', time),
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
@@ -108,6 +110,7 @@ export const getMonthComple = (date) => {
     months.push({
       date: formatDate('YYYY-MM-DD', time),
       datemon: formatDate('MM-DD', time),
+      dateday: formatDate('DD', time),
       week: ws[0],
       week1: ws[1],
       week2: ws[2],
@@ -124,9 +127,6 @@ export const getMonthComple = (date) => {
     item.monthcn = nl.IMonthCn
     item.daycn = nl.IDayCn
   })
-
   return months
 }
-
-// getMonthComple()
-// console.log(getMonthComple());
+// const arr = getMonthComple('2021-02')

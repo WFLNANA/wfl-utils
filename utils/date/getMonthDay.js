@@ -3,7 +3,7 @@
  * @LastEditors: wfl
  * @description: 获取某年某月有多少天
  * @Date: 2021-09-23 18:05:03
- * @LastEditTime: 2021-11-16 18:02:19
+ * @LastEditTime: 2021-12-07 12:30:18
  */
 const check = ['number', 'string']
 export const getMonthDay = (year, month) => {
