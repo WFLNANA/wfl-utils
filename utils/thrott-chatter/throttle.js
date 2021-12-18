@@ -4,7 +4,7 @@
  * @description: 节流
  * @updateInfo: 本次更新内容：
  * @Date: 2021-10-11 11:59:11
- * @LastEditTime: 2021-10-11 13:33:29
+ * @LastEditTime: 2021-12-17 16:54:53
  */
 /**
  * @description: 函数节流（throttle）：当持续触发事件时，保证一定时间段内只调用一次事件处理函数

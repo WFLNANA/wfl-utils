@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-11-02 11:37:58
+ * @LastEditTime: 2021-12-17 16:40:46
  */
 declare module 'wfl-utils' {
   export function loadFile(fileSrc: string, type: string, fn?: Function): void
@@ -134,5 +134,7 @@ declare module 'wfl-utils' {
     children?: string
     quit?: [string | number, string | number]
   }
-  export function formatTree(data: any[], param?: ITree): any[]
+  export function formatTree<T>(data: T[], param?: ITree): T[]
+
+  export function treeFlat<T>(tree: T[] | T, children?: string): T[]
 }
