@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 13:41:56
- * @LastEditTime: 2021-11-16 18:02:10
+ * @LastEditTime: 2021-12-20 18:13:25
  */
 import { getType } from './types/get-type.js'
 /**
@@ -15,7 +15,7 @@ import { getType } from './types/get-type.js'
  *    id: 标识
  *    parentId: 父标识
  *    children: 子存放属性名
- *    quit：返回条件
+ *    quit: 返回条件
  *  }
  * }
  * @return {tree data}
@@ -60,16 +60,16 @@ export const formatTree = (data, param = null) => {
 
 // console.log(formatTree(data, {id: 'id'}));
 
-let data = [
-  { no: 1, parentNo: null, name: "菜单1", rank: 1 },
-  { no: 2, parentNo: null, name: "菜单2", rank: 1 },
-  { no: 3, parentNo: null, name: "菜单3", rank: 1 },
-  { no: 4, parentNo: 1, name: "菜单1-1", rank: 2 },
-  { no: 5, parentNo: 1, name: "菜单1-2", rank: 2 },
-  { no: 6, parentNo: 2, name: "菜单2-1", rank: 2 },
-  { no: 7, parentNo: 4, name: "菜单1-1-1", rank: 3 },
-  { no: 8, parentNo: 7, name: "菜单1-1-1-1", rank: 4 },
-  { no: 9, parentNo: 8, name: "菜单1-1-1-1-1", rank: 5 },
-  { no: 10, parentNo: 9, name: "菜单1-1-1-1-1-1", rank: 6 },
-  { no: 11, parentNo: 10, name: "菜单1-1-1-1-1-1-1", rank: 7 },
-]
+// let data = [
+//   { no: 1, parentNo: null, name: "菜单1", rank: 1 },
+//   { no: 2, parentNo: null, name: "菜单2", rank: 1 },
+//   { no: 3, parentNo: null, name: "菜单3", rank: 1 },
+//   { no: 4, parentNo: 1, name: "菜单1-1", rank: 2 },
+//   { no: 5, parentNo: 1, name: "菜单1-2", rank: 2 },
+//   { no: 6, parentNo: 2, name: "菜单2-1", rank: 2 },
+//   { no: 7, parentNo: 4, name: "菜单1-1-1", rank: 3 },
+//   { no: 8, parentNo: 7, name: "菜单1-1-1-1", rank: 4 },
+//   { no: 9, parentNo: 8, name: "菜单1-1-1-1-1", rank: 5 },
+//   { no: 10, parentNo: 9, name: "菜单1-1-1-1-1-1", rank: 6 },
+//   { no: 11, parentNo: 10, name: "菜单1-1-1-1-1-1-1", rank: 7 },
+// ]
