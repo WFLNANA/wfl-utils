@@ -693,8 +693,8 @@ getMonthComple();
 - @param {\*} delay 延迟时间-毫秒
 - @param {\*} immediate 立即执行
 - @param {\*} cb 回调函数
-- @return {_}
-  _/
+- @return {}
+
   **例：**
 
 ```javascript
@@ -718,9 +718,8 @@ setInterval(() => {
 }, 1000);
 ```
 
-```
+#### 函数节流
 
-#### 函数节流：
 当持续触发事件时，保证一定时间段内只调用一次事件处理函数
 参数：
 /\*\*
@@ -730,10 +729,9 @@ setInterval(() => {
 - @param {\*} delay 延迟时间-毫秒
 - @param {\*} immediate 立即执行
 - @param {\*} cb 回调函数
-- @return {_}
-  _/
+- @return {}
 
-  **例：**
+**例：**
 ```javascript
 import { throttle } from 'wfl-utils'
 
@@ -746,19 +744,20 @@ setInterval(() => {
  console.log('-')
  fn()
 }, 100)
-```
 
 ```
 #### 全屏：
+
 整个页面或指定某一元素全屏
+
 参数：
-/\*\*
 
 - @description: 函数节流
 - @param {\*} id 可选DOM元素id
-- @return {_}
-  _/
+- @return {}
+  
   **例：**
+
 ```javascript
 import { fullScreen } from 'wfl-utils'
 
@@ -776,5 +775,65 @@ fullScreen.toggle()
 <div id="demo"></div>
 fullScreen.toggle('demo')
 ```
+#### for of 遍历对象：
+- @description: for of 遍历对象
+- @param {*}  Object
+- @return {} [string, any][]
+
+```javascript
+import { mapObject } from 'wfl-utils'
+
+const obj = { age: 18, sex: 1, name: 1 }
+
+mapObject(obj)
+
+for (let [v, i] of obj) {
+  console.log(v, i);
+}
+
+// age 18
+// sex 1
+// name 1
+```
+
+#### 获取本机IP、CPU、操作系统等信息（适用于node端或web端在webpack.config.js、vue.config.js、vite.config.js、webpack等编译阶段及插件内的场景）：
+
+- @description: 获取本机系统信息
+- @param {*}
+- @return {
+
+    ip: string // ip
+	
+    arch: string // CPU 架构
+	
+    platform: string  // 操作系统
+	
+    cpu: string  // CPU信息
+	
+    memory: number // 总内存
+	
+    freeMemory: number // 空闲内存
+	
+    type: 'Linux' | 'Darwin' | 'Windows_NT' // 操作系统名称
+	
+	} 
+
+```javascript
+import { getServerInfo } from 'wfl-utils'
+
+getServerInfo()
+
+// {
+//   ip: '192.168.1.112',
+//   arch: 'x64',
+//   platform: 'win32',
+//   cpu: '11th Gen Intel(R) Core(TM) i5-11400 @ 2.60GHz',
+//   memory: 17026428928,
+//   freeMemory: 4322287616,
+//   type: 'Windows_NT'
+// }
+
+```
+
 
 #### 其它文档待完善

@@ -4,7 +4,7 @@
  * @description: Symbol.iterator
  * @updateInfo: 本次更新内容：
  * @Date: 2021-10-11 16:38:19
- * @LastEditTime: 2021-10-11 16:55:09
+ * @LastEditTime: 2022-05-06 19:11:44
  */
 function iterator() {
   let index = -1
@@ -24,13 +24,16 @@ function iterator() {
   }
 }
 
-export const mapObject = (obj = null) => {
+export const forOfObject = (obj = null) => {
   obj[Symbol.iterator] = iterator
 }
 
-
 // const obj = { age: 18, sex: 1, name: 1 }
-// mapObject(obj)
+// forOfObject(obj)
 // for (let [v, i] of obj) {
 //   console.log(v, i);
 // }
+
+// obj.map((v) => {
+//   console.log(v);
+// })

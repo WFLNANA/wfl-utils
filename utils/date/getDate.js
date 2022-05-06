@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-23 17:06:52
- * @LastEditTime: 2021-12-07 12:16:22
+ * @LastEditTime: 2022-03-22 09:41:16
  */
 import { formatDate } from './formatDate.js'
 import { formatWeek } from './formatWeek.js'
@@ -48,7 +48,6 @@ export const getWeek = (date) => {
     })
     r++
   }
-
   return weeks
 }
 // console.log(getWeek());

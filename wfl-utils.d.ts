@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 11:53:35
- * @LastEditTime: 2021-12-17 16:40:46
+ * @LastEditTime: 2022-05-06 19:02:53
  */
 declare module 'wfl-utils' {
   export function loadFile(fileSrc: string, type: string, fn?: Function): void
@@ -24,7 +24,7 @@ declare module 'wfl-utils' {
     sexBolNum: number
   }
   export namespace cookie {
-    function set(name: string, value: any, time: number | Date)
+    function set(name: string, value: any, time?: number | Date)
     function get(name: string): any
     function del(name: string): void
   }
@@ -65,11 +65,11 @@ declare module 'wfl-utils' {
 
   export function formatDate(fstr: string, date?: string | Date, backList?: boolean): string;
 
-  export function flatArr(arr: Array<T>): Array<T>;
+  export function flatArr<T>(arr: Array<T>): Array<T>;
 
-  export function formatWeek(date: Date | string, isArr?: boolean): string | (string | number)[];
+  export function formatWeek(date?: Date | string, isArr?: boolean): string | (string | number)[];
 
-  export function getWeek(date: any): {
+  export function getWeek(date?: any): {
     date: any;
     datemon: any;
     week: string | number;
@@ -134,7 +134,52 @@ declare module 'wfl-utils' {
     children?: string
     quit?: [string | number, string | number]
   }
+
   export function formatTree<T>(data: T[], param?: ITree): T[]
 
   export function treeFlat<T>(tree: T[] | T, children?: string): T[]
+
+  /**
+   * @description: for of 遍历对象
+   * @param {object}
+   * @return { [string, any][] }
+   */
+  export function forOfObject(obj: object): [string, any][]
+
+  /**
+   * @description:
+   * @param {*}
+   * @return {
+   *  // ip
+      ip: string
+      // CPU 架构
+      arch: string
+      // 操作系统
+      platform: string
+      // CPU信息
+      cpu: string
+      // 总内存
+      memory: number
+      // 空闲内存
+      freeMemory: number
+      // 操作系统名称
+      type: 'Linux' | 'Darwin' | 'Windows_NT'
+   * }
+   */
+  export function getServerInfo(): {
+    // ip
+    ip: string
+    // CPU 架构
+    arch: string
+    // 操作系统
+    platform: string
+    // CPU信息
+    cpu: string
+    // 总内存
+    memory: number
+    // 空闲内存
+    freeMemory: number
+    // 操作系统名称
+    type: 'Linux' | 'Darwin' | 'Windows_NT'
+  }
 }

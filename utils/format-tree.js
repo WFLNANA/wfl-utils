@@ -4,18 +4,18 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-13 13:41:56
- * @LastEditTime: 2021-12-20 18:13:25
+ * @LastEditTime: 2022-02-17 17:15:26
  */
 import { getType } from './types/get-type.js'
 /**
- * @description: 
+ * @description: 利用数组Filter将数据组装为树形结构
  * @param {
  *  data: 原数据
  *  param: {
  *    id: 标识
  *    parentId: 父标识
  *    children: 子存放属性名
- *    quit: 返回条件
+ *    quit: 返回条件[比较的属性名, 属性值]
  *  }
  * }
  * @return {tree data}
