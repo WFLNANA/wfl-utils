@@ -3,7 +3,7 @@
  * @LastEditors: wfl
  * @description: 数组扁平化
  * @Date: 2021-09-22 16:46:24
- * @LastEditTime: 2021-09-22 17:23:33
+ * @LastEditTime: 2022-07-11 18:23:12
  */
 export const flatArr = (arr) => {
   if (!Array.isArray(arr)) {

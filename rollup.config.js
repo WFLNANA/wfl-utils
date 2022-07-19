@@ -4,7 +4,7 @@
  * @description: 
  * @updateInfo: 本次更新内容：
  * @Date: 2021-09-15 20:01:51
- * @LastEditTime: 2021-09-23 16:47:02
+ * @LastEditTime: 2022-05-07 09:43:06
  */
 import { terser } from 'rollup-plugin-terser'
 import copy from 'rollup-plugin-copy'
@@ -16,6 +16,11 @@ export default {
   output: [{
     file: 'dist/wfl-utils.es.js',
     format: 'es',
+    name: 'wfl-utils'
+  },
+  {
+    file: 'dist/wfl-utils.umd.js',
+    format: 'umd',
     name: 'wfl-utils'
   },
     // {
